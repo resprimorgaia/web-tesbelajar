@@ -1,0 +1,5 @@
+Flask==2.3.3
+joblib==1.4.2
+Werkzeug==3.0.3
+scikit-learn==1.4.2
+fpdf==1.7.2
