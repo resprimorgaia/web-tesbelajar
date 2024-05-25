@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!-- Judul Halaman -->
+	<title>TES GAYA BELAJAR</title>
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<!-- Icon -->
+	<link rel="shortcut icon" href="{{ url_for('static', filename='images/t.png') }}" />
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" type="text/css" />
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/client_side.css') }}" type="text/css" />
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+
+	<!-- JavaScript -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.3/jspdf.umd.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+
+<body id="halamanku" data-spy="scroll" data-target=".navbar" data-offset="100">
+	<!-- Navigation Bar -->
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<!-- Logo dan Brand -->
+			<div class="navbar-header d-flex align-items-center">
+				<img src="{{ url_for('static', filename='images/TGB 1.png') }}" alt="TGB Logo" width="110" height="25"
+					class="navbar-logo" ; />
+				<a class="navbar-brand" href="#halamanku">Tes Gaya Belajar</a>
+			</div>
+
+			<!-- Daftar Halaman -->
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#halamanberanda">HALAMAN BERANDA</a></li>
+					<li><a href="#prediksi">PREDIKSI</a></li>
+					<li><a href="#pengembang">PENGEMBANG</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<!-- Bagian Halaman (halamanutama) -->
+	<div id="halamanberanda" class="container-fluid">
+		<br />
+		<br />
+		<div class="row">
+			<div class="col-sm-6">
+				<!-- Deskripsi Aplikasi -->
+				<b>
+					<h2>
+						<span class="judul">Aplikasi <br /><br />Tes Gaya Belajar</span>
+					</h2>
+				</b>
+				<p class="paragraf">
+					Aplikasi tes gaya belajar membantu pengguna mengidentifikasi
+					preferensi belajar mereka, yang merujuk pada cara individu menyerap,
+					memproses, dan mengingat informasi, termasuk gaya visual, auditori
+					dan kinestetik. Melalui serangkaian pertanyaan atau aktivitas,
+					aplikasi mengukur preferensi belajar dan memberikan hasil serta
+					rekomendasi strategi belajar sesuai dengan gaya belajar pengguna.
+					Tujuannya adalah membantu individu memahami cara terbaik mereka
+					dalam mempelajari informasi baru, meningkatkan proses belajar, dan
+					mencapai hasil yang lebih baik dalam pendidikan dan pelatihan.
+					Selain itu, aplikasi ini dapat digunakan oleh guru, pelatih, atau
+					tutor untuk menyusun rencana pembelajaran yang lebih efektif bagi
+					siswa atau peserta didik mereka.
+				</p>
+
+				<!-- Tombol Mulai -->
+				<nav id="navgo" class="navbar" style="background-color: #ffffff; z-index: 0">
+					<ul class="nav nav-pills">
+						<li class="nav-item">
+							<a class="btn btn-default btn-lg" href="#prediksi"
+								style="background-color: #28ace5">Mulai</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+
+			<div class="col-sm-6">
+				<br />
+				<br />
+				<br />
+				<br />
+				<!-- Gambar Deskripsi Aplikasi -->
+				<img src="{{ url_for('static', filename='images/coba.png') }}" width=" 510" />
+			</div>
+		</div>
+		<br />
+	</div>
+
+	<!-- Bagian Halaman (prediksi) -->
+	<div id="prediksi" class="container-fluid">
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3">
+							<br /><br /><br />
+							<h2>SOAL TES</h2>
+							<form id="data">
+								<div class="form-group">
+									<label>Nama</label>
+									<input type="text" class="form-control" id="name" required />
+								</div>
+								<div class="form-group">
+									<label>Kelas</label>
+									<input type="text" class="form-control" id="class" required />
+								</div>
+								<div class="form-group">
+									<label>Sekolah</label>
+									<input type="text" class="form-control" id="school" required />
+									<div class="form-group">
+										<br />
+										<button id="nameSubmitButton" class="btn btn-primary">
+											Lanjut
+										</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3">
+							<form id="form_soal">
+								<div class="form-group">
+									<!-- Soal 1 -->
+									<label for="soal1">1. Saat aku membutuhkan arahan untuk bepergian, biasanya
+										aku…</label>
+									<br />
+									<input type="radio" id="jawaban1_a" name="jawaban1" value="a" />
+									a. Suka melihat peta atau gambaran rute yang jelas
+									<br />
+									<input type="radio" id="jawaban1_b" name="jawaban1" value="b" />
+									b. Cenderung mengikuti arah dengan mendengarkan petunjuk
+									suara dengan teliti, seperti penjelasasn dari orang atau
+									suara di GPS
+									<br />
+									<input type="radio" id="jawaban1_c" name="jawaban1" value="c" />
+									c. Lebih memahami arah dengan mencoba-coba melalui
+									pengalaman langsung <br /><br />
+
+									<!-- Soal 2 -->
+									<label for="soal2">2. Saat aku memasak masakan baru, Aku suka...</label>
+									<br />
+									<input type="radio" id="jawaban2_a" name="jawaban2" value="a" />
+									a. Melihat resep yang terperinci dengan gambar-gambar
+									langkah demi langkah
+									<br />
+									<input type="radio" id="jawaban2_b" name="jawaban2" value="b" />
+									b. Mendengarkan instruksi masak yang diucapkan atau
+									didengarkan dari video atau orang lain
+									<br />
+									<input type="radio" id="jawaban2_c" name="jawaban2" value="c" />
+									c. Belajar secara langsung, dan mencicip saat aku memasak
+									<br /><br />
+
+									<!-- Soal 3 -->
+									<label for="soal3">3. Jika aku mengajari seseorang sesuatu yang baru, aku
+										cenderung...</label>
+									<br />
+									<input type="radio" id="jawaban3_a" name="jawaban3" value="a" />
+									a. Menggunakan papan tulis atau presentasi visual untuk
+									memberikan penjelasan yang lebih jelas
+									<br />
+									<input type="radio" id="jawaban3_b" name="jawaban3" value="b" />
+									b. Memberikan penjelasan secara lisan dengan menggunakan
+									cerita atau contoh-contoh lisan lainnya
+									<br />
+									<input type="radio" id="jawaban3_c" name="jawaban3" value="c" />
+									c. Melibatkan siswa dalam aktivitas fisik atau praktik
+									langsung terkait dengan materi yang diajarkan <br /><br />
+
+									<!-- Soal 4 -->
+									<label for="soal4">4. Aku cenderung mengatakan...</label>
+									<br />
+									<input type="radio" id="jawaban4_a" name="jawaban4" value="a" />
+									a. Perhatikan bagaimana aku melakukannya
+									<br />
+									<input type="radio" id="jawaban4_b" name="jawaban4" value="b" />
+									b. Dengarkan aku menjelaskan
+									<br />
+									<input type="radio" id="jawaban4_c" name="jawaban4" value="c" />
+									c. Kamu bisa mencoba <br /><br />
+
+									<!-- Soal 5 -->
+									<label for="soal5">5. Saat Aku memilih liburan, biasanya aku...</label>
+									<br />
+									<input type="radio" id="jawaban5_a" name="jawaban5" value="a" />
+									a. Membaca banyak brosur tempat wisata untuk merencanakan
+									perjalanan wisata yang menarik
+									<br />
+									<input type="radio" id="jawaban5_b" name="jawaban5" value="b" />
+									b. Mendengarkan saran dari teman-teman atau mendengarkan
+									ulasan audio tentang pengalaman liburan yang menarik
+									<br />
+									<input type="radio" id="jawaban5_c" name="jawaban5" value="c" />
+									c. Langsung datang ke lokasi wisata <br /><br />
+
+									<!-- Soal 6 -->
+									<label for="soal6">6. Jika Aku membeli mobil baru, aku akan...</label>
+									<br />
+									<input type="radio" id="jawaban6_a" name="jawaban6" value="a" />
+									a. Melihat katalog mobil dan membandingkan fitur-fiturnya
+									secara visual
+									<br />
+									<input type="radio" id="jawaban6_b" name="jawaban6" value="b" />
+									b. Berdiskusi dengan teman atau anggota keluarga yang
+									memiliki pengetahuan tentang mobil
+									<br />
+									<input type="radio" id="jawaban6_c" name="jawaban6" value="c" />
+									c. Mengunjungi dealer mobil untuk merasakan langsung kemudi,
+									kursi, dan fitur-fitur lainnya <br /><br />
+
+									<!-- Soal 7 -->
+									<label for="soal7">7. Saat Aku belajar keterampilan baru, aku merasa paling
+										nyaman...</label>
+									<br />
+									<input type="radio" id="jawaban7_a" name="jawaban7" value="a" />
+									a. Memperhatikan apa yang sedang dilakukan dan dicontohkan
+									oleh guru
+									<br />
+									<input type="radio" id="jawaban7_b" name="jawaban7" value="b" />
+									b. Diskusi kelompok atau mendengarkan penjelasan guru yang
+									menjelaskan konsep secara rinci
+									<br />
+									<input type="radio" id="jawaban7_c" name="jawaban7" value="c" />
+									c. Melakukan percobaan sendiri dan langsung mengerjakannya
+									<br /><br />
+
+									<!-- Soal 8 -->
+									<label for="soal8">8. Jika memilih makanan dari menu, aku
+										cenderung...</label>
+									<br />
+									<input type="radio" id="jawaban8_a" name="jawaban8" value="a" />
+									a. Melihat berdasarkan gambar atau presentasi visual yang
+									menarik
+									<br />
+									<input type="radio" id="jawaban8_b" name="jawaban8" value="b" />
+									b. Mendengarkan deskripsi atau rekomendasi dari pelayan atau
+									teman
+									<br />
+									<input type="radio" id="jawaban8_c" name="jawaban8" value="c" />
+									c. Meminta disajikan dan aku merasakannya langsung
+									<br /><br />
+
+									<!-- Soal 9 -->
+									<label for="soal9">9. Ketika berada di sebuah konser musik, aku tidak dapat
+										menahan diri untuk...</label>
+									<br />
+									<input type="radio" id="jawaban9_a" name="jawaban9" value="a" />
+									a. Menonton pemain/ anggota band
+									<br />
+									<input type="radio" id="jawaban9_b" name="jawaban9" value="b" />
+									b. Mendengarkan lirik dan iramanya
+									<br />
+									<input type="radio" id="jawaban9_c" name="jawaban9" value="c" />
+									c. Bergerak mengikuti musik <br /><br />
+
+									<!-- Soal 10 -->
+									<label for="soal10">10. Saat berkonsentrasi, aku paling sering...</label>
+									<br />
+									<input type="radio" id="jawaban10_a" name="jawaban10" value="a" />
+									a. Fokus pada kata-kata atau gambar di depanku
+									<br />
+									<input type="radio" id="jawaban10_b" name="jawaban10" value="b" />
+									b. Mendiskusikan masalah dan solusi yang mungkin ada dalam
+									kepalaku
+									<br />
+									<input type="radio" id="jawaban10_c" name="jawaban10" value="c" />
+									c. Banyak bergerak, memainkan pena, pensil dan menyentuh
+									benda <br /><br />
+
+									<!-- Soal 11 -->
+									<label for="soal11">11. Aku memilih perabot rumah tangga karena aku
+										suka...</label>
+									<br />
+									<input type="radio" id="jawaban11_a" name="jawaban11" value="a" />
+									a. Desainnya yang modern dan warnanya yang cerah
+									<br />
+									<input type="radio" id="jawaban11_b" name="jawaban11" value="b" />
+									b. Penjelasan yang diberikan penjual kepadaku
+									<br />
+									<input type="radio" id="jawaban11_c" name="jawaban11" value="c" />
+									c. Tekstur mereka dan bagaimana rasanya menggunakan
+									perabotan tersebut <br /><br />
+
+									<!-- Soal 12 -->
+									<label for="soal12">12. Aku lebih mudah mengingat jika…</label>
+									<br />
+									<input type="radio" id="jawaban12_a" name="jawaban12" value="a" />
+									a. Melihat sesuatu
+									<br />
+									<input type="radio" id="jawaban12_b" name="jawaban12" value="b" />
+									b. Hasil pembicaraan atau diskusi bersama orang lain
+									<br />
+									<input type="radio" id="jawaban12_c" name="jawaban12" value="c" />
+									c. Melakukan sesuatu secara langsung <br /><br />
+
+									<!-- Soal 13 -->
+									<label for="soal13">13. Aku merasa tertarik dengan orang lain karena…</label>
+									<br />
+									<input type="radio" id="jawaban13_a" name="jawaban13" value="a" />
+									a. Penampilan mereka
+									<br />
+									<input type="radio" id="jawaban13_b" name="jawaban13" value="b" />
+									b. Apa yang mereka katakan padaku
+									<br />
+									<input type="radio" id="jawaban13_c" name="jawaban13" value="c" />
+									c. Bagaimana perilaku mereka <br /><br />
+
+									<!-- Soal 14 -->
+									<label for="soal14">14. Saat harus merevisi ujian, biasanya aku…</label>
+									<br />
+									<input type="radio" id="jawaban14_a" name="jawaban14" value="a" />
+									a. Membuat diagram atau peta konsep yang mencakup semua
+									materi yang akan diuji
+									<br />
+									<input type="radio" id="jawaban14_b" name="jawaban14" value="b" />
+									b. Mendiskusikan catatanku dengan orang lain
+									<br />
+									<input type="radio" id="jawaban14_c" name="jawaban14" value="c" />
+									c. Membayangkan membuat gerakan atau menciptakan rumus
+									<br /><br />
+
+									<!-- Soal 15 -->
+									<label for="soal15">15. Jika menjelaskan kepada seseorang, aku
+										cenderung…</label>
+									<br />
+									<input type="radio" id="jawaban15_a" name="jawaban15" value="a" />
+									a. Menunjukkan apa yang aku maksud bisa berupa gambar atau
+									grafik
+									<br />
+									<input type="radio" id="jawaban15_b" name="jawaban15" value="b" />
+									b. Menjelaskan kepada mereka dengan cerita, atau bahasa yang
+									terdengar jelas dan menarik
+									<br />
+									<input type="radio" id="jawaban15_c" name="jawaban15" value="c" />
+									c. Memberi contoh dengan praktik atau memberi kesempatan
+									untuk mencoba sendiri agar bisa merasakan langsung
+									<br /><br />
+
+									<!-- Soal 16 -->
+									<label for="soal16">16. Aku sangat menyukai…</label>
+									<br />
+									<input type="radio" id="jawaban16_a" name="jawaban16" value="a" />
+									a. Menonton film, fotografi atau melihat seni
+									<br />
+									<input type="radio" id="jawaban16_b" name="jawaban16" value="b" />
+									b. Mendengarkan musik, radio atau berbicara dengan teman
+									<br />
+									<input type="radio" id="jawaban16_c" name="jawaban16" value="c" />
+									c. Olahraga, makan makanan yang lezat, atau menari
+									<br /><br />
+
+									<!-- Soal 17 -->
+									<label for="soal17">17. Sebagian besar waktu luangku dihabiskan untuk…</label>
+									<br />
+									<input type="radio" id="jawaban17_a" name="jawaban17" value="a" />
+									a. Menonton televisi, film atau video di internet
+									<br />
+									<input type="radio" id="jawaban17_b" name="jawaban17" value="b" />
+									b. Berbicara dengan orang lain atau mendengarkan cerita dari
+									teman
+									<br />
+									<input type="radio" id="jawaban17_c" name="jawaban17" value="c" />
+									c. Melakukan aktivitas fisik atau membuat sesuatu
+									<br /><br />
+
+									<!-- Soal 18 -->
+									<label for="soal18">18. Saat pertama kali menghubungi orang baru, aku
+										biasanya…</label>
+									<br />
+									<input type="radio" id="jawaban18_a" name="jawaban18" value="a" />
+									a. Mengamati gambar profil mereka dan melihat-lihat
+									foto-foto yang mereka bagikan di media sosial
+									<br />
+									<input type="radio" id="jawaban18_b" name="jawaban18" value="b" />
+									b. Suka berbicara dengan mereka melalui panggilan telepon
+									atau video
+									<br />
+									<input type="radio" id="jawaban18_c" name="jawaban18" value="c" />
+									c. Bertemu langsung atau melakukan kegiatan fisik bersama
+									seperti makan bersama <br /><br />
+
+									<!-- Soal 19 -->
+									<label for="soal19">19. Aku merasa paling mudah untuk mengingat…</label>
+									<br />
+									<input type="radio" id="jawaban19_a" name="jawaban19" value="a" />
+									a. Wajah
+									<br />
+									<input type="radio" id="jawaban19_b" name="jawaban19" value="b" />
+									b. Nama
+									<br />
+									<input type="radio" id="jawaban19_c" name="jawaban19" value="c" />
+									c. Hal yang telah aku lakukan <br /><br />
+
+									<!-- Soal 20 -->
+									<label for="soal20">20. Aku bisa tahu apakah seseorang berbohong jika…</label>
+									<br />
+									<input type="radio" id="jawaban20_a" name="jawaban20" value="a" />
+									a. Mereka memalingkan pandangan ketika melihatku
+									<br />
+									<input type="radio" id="jawaban20_b" name="jawaban20" value="b" />
+									b. Suara mereka atau intonasi suara yang berubah
+									<br />
+									<input type="radio" id="jawaban20_c" name="jawaban20" value="c" />
+									c. Mereka menunjukkan kegelisahan dalam sentuhan atau
+									gerakan fisik <br /><br />
+
+									<!-- Soal 21 -->
+									<label for="soal21">21. Ketika aku bertemu dengan seorang teman lama…</label>
+									<br />
+									<input type="radio" id="jawaban21_a" name="jawaban21" value="a" />
+									a. Aku berkata "Senang bertemu dengan Kamu!"
+									<br />
+									<input type="radio" id="jawaban21_b" name="jawaban21" value="b" />
+									b. Aku berkata "Senang dapat berbicara dengan kamu!"
+									<br />
+									<input type="radio" id="jawaban21_c" name="jawaban21" value="c" />
+									c. Aku memeluk mereka atau berjabat tangan <br /><br />
+
+									<!-- Soal 22 -->
+									<label for="soal22">22. Aku lebih mudah mengingat dengan…</label>
+									<br />
+									<input type="radio" id="jawaban22_a" name="jawaban22" value="a" />
+									a. Menulis catatan
+									<br />
+									<input type="radio" id="jawaban22_b" name="jawaban22" value="b" />
+									b. Mengatakannya dengan keras atau mengulang materi dengan
+									mendengarkan rekaman suara yang menjelaskan konsep tersebut
+									<br />
+									<input type="radio" id="jawaban22_c" name="jawaban22" value="c" />
+									c. Melakukan dan mempraktikkan aktivitas secara langsung
+									<br /><br />
+								</div>
+								<!-- Tombol Cek -->
+								<button type="button" id="cek_button" class="btn btn-default btn-lg">
+									Cek
+								</button>
+							</form>
+							<!-- Soal Tambahan -->
+							<div id="soal_tambahan" class="container-fluid">
+								<div id="tipe_1" style="display: none">
+									<label for="tambahan_1">Saat cemas, aku…</label>
+									<br />
+									<input type="radio" id="tambahan_1_a" name="tambahan_1" value="a" />
+									Membayangkan kejadian terburuk
+									<br />
+									<input type="radio" id="tambahan_1_b" name="tambahan_1" value="b" />
+									Berbicara dengan seseorang atau mendengarkan suara-suara
+									yang menenangkan, seperti musik atau rekaman meditasi
+									<br /><br />
+								</div>
+								<div id="tipe_2" style="display: none">
+									<label for="tambahan_2">Saat cemas, aku…</label>
+									<br />
+									<input type="radio" id="tambahan_2_a" name="tambahan_2" value="a" />
+									Membayangkan kejadian terburuk
+									<br />
+									<input type="radio" id="tambahan_2_c" name="tambahan_2" value="c" />
+									Tidak bisa duduk diam dan bergerak terus menerus untuk
+									melepaskan ketegangan <br /><br />
+								</div>
+								<div id="tipe_3" style="display: none">
+									<label for="tambahan_3">Saat cemas, aku…</label>
+									<br />
+									<input type="radio" id="tambahan_3_b" name="tambahan_3" value="b" />
+									Berbicara dengan seseorang atau mendengarkan suara-suara
+									yang menenangkan, seperti musik atau rekaman meditasi
+									<br />
+									<input type="radio" id="tambahan_3_c" name="tambahan_3" value="c" />
+									Tidak bisa duduk diam dan bergerak terus menerus untuk
+									melepaskan ketegangan <br /><br />
+								</div>
+							</div>
+						</div>
+						<div class="container">
+							<div class="row">
+								<div class="col-md-6 col-md-offset-3 text-center">
+									<!-- Bagian Halaman untuk Hasil Prediksi -->
+									<div id="hasil_prediksi">
+										<b>Hasil Tes Akan Keluar Disini</b>
+										<!-- Hasil Prediksi akan ditampilkan di sini-->
+									</div>
+									<br>
+									<!-- Tombol untuk mengunduh hasil prediksi dalam bentuk PDF -->
+									<button id="downloadResultButton">Unduh PDF</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Bagian Halaman (Pengembang) -->
+					<div class="container-fluid" id="pengembang">
+						<br /><br /><br />
+						<div class="panel panel-primary">
+							<div class="panel-body text-center">
+								<div class="row justify-content-center">
+									<div class="col-md-6">
+										<div style="display: flex; align-items: center">
+											<!-- Bagian kiri untuk gambar -->
+											<div style="max-width: 30%">
+												<img id="gambar_prediksi" src="../static/images/profil.jpg" alt=""
+													style="max-width: 80%; height: auto" />
+											</div>
+											<!-- Bagian kanan untuk informasi -->
+											<div style="max-width: 70%">
+												<div class="panel-body text-left" style="margin: 0">
+													<h2>PROFIL PENGEMBANG</h2>
+													<b>
+														<p style="margin: 0">Nama : Wiwik Melliana</p>
+														<p style="margin: 0">NIM : 200631100070</p>
+														<p style="margin: 0">
+															Prodi : Pendidikan Informatika
+														</p>
+														<p style="margin: 0">
+															Universitas : Trunojoyo Madura
+														</p>
+													</b>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Footer -->
+	<footer class="container-fluid text-center">
+		<a href="#halamanku" title="To Top">
+			<span class="glyphicon glyphicon-chevron-up"></span>
+		</a>
+		<p>
+			design by <br />
+			<a href="https://www.instagram.com/wiwikmelliana?utm_source=qr&igsh=ZTM4ZDRiNzUwMw==">wiwikmelliana</a>
+		</p>
+	</footer>
+	<script src="{{ url_for('static', filename='js/client_side.js') }}"></script>
+</body>
+
+</html>
